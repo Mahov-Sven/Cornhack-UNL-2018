@@ -33,6 +33,10 @@ public class Map {
 		return new TextFlow(tiles);
 	}
 
+	public void setTile(int y, int x, Tile tile) {
+		map.set(x, y, tile);
+	}
+
 	public Matrix<Tile> getMap() {
 		return map;
 	}

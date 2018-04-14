@@ -2,15 +2,20 @@ package cornhack.world.tile;
 
 import cornhack.creature.Creature;
 import cornhack.mechanics.actions.Action;
+import cornhack.util.Util;
 import cornhack.world.Map;
 import javafx.scene.text.Text;
 
-public class Floor extends Tile{
+public class Floor extends Tile {
 	
+	private char[] floors = { '\u2591' };
+
 	@Override
 	public Text render(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+		Text tile = new Text();
+		tile.getStyleClass().add("Floor-Basic");
+		tile.setText(Util.charToString(floors[0]));
+		return tile;
 	}
 
 	@Override
