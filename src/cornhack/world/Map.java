@@ -42,7 +42,7 @@ public class Map {
 		return map;
 	}
 	
-	public void setCreature(int y, int x, Creature c){
+	public void setCreature(int x, int y, Creature c){
 		creatures.set(x, y, c);
 	}
 
