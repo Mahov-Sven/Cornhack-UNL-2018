@@ -8,17 +8,17 @@ import javafx.scene.text.Text;
 
 public abstract class Creature {
 	
-	private int str;
-	private int dex;
-	private int con;
-	private int ntl;
-	private int wis;
-	private int cha;
-	private int maxHP;
-	private int currentHP;
-	private int AC;
-	private int AP;
-	private List<Action> actions;
+	protected int str;
+	protected int dex;
+	protected int con;
+	protected int ntl;
+	protected int wis;
+	protected int cha;
+	protected int maxHP;
+	protected int currentHP;
+	protected int AC;
+	protected int AP;
+	protected List<Action> actions;
 
 	
 	public int getStr() {
@@ -161,6 +161,7 @@ public abstract class Creature {
 		this.actions = actions;
 	}
 
+	
 	
 	public abstract Text render(Map map);
 }
