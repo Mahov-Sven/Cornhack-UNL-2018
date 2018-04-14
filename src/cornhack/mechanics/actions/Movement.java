@@ -1,12 +1,12 @@
 package cornhack.mechanics.actions;
 
+
+import cornhack.creature.Creature;
 import cornhack.world.Map;
 
 public class Movement extends Action {
 
-	@Override
-	public void act(Map map) {
-		// TODO Auto-generated method stub
+	public void moveSomewhere(Map map, Creature initiator, int direction){
 		
 	}
 	

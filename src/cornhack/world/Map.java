@@ -41,7 +41,12 @@ public class Map {
 	public Matrix<Tile> getTiles() {
 		return map;
 	}
+	
+	public void setCreature(int y, int x, Creature c){
+		creatures.set(x, y, c);
+	}
 
+	
 	public Matrix<Creature> getCreatures() {
 		return creatures;
 	}
