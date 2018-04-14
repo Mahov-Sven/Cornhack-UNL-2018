@@ -36,7 +36,7 @@ public class Map {
 	}
 
 	public void setTile(int x, int y, Tile tile) {
-		map.set(x, y, tile);
+		map.set(y, x, tile);
 	}
 	public Matrix<Tile> getTiles() {
 		return map;

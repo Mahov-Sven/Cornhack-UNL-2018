@@ -12,7 +12,7 @@ public class Matrix<T> {
 	
 	public Matrix(int cols, int rows) {
 		this.matrix = new ArrayList<ArrayList<T>>();
-		this.size(rows, cols);
+		this.size(cols, rows);
 	}
 
 	public void size(int cols, int rows) {

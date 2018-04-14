@@ -34,4 +34,38 @@ public class MapGenerator {
 
 		return map;
 	}
+
+	public static Map generateBasicFloor() {
+		int width = 45;
+		int height = 35;
+		Map map = new Map(width, height);
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				map.setTile(x, y, new Floor());
+			}
+		}
+
+		for (int x = 0; x < 16; x++) {
+			map.setTile(x, 0, new Wall());
+		}
+
+		for (int y = 0; y < 35; y++) {
+			map.setTile(0, y, new Wall());
+		}
+
+		for (int y = 0; y < 35; y++) {
+			map.setTile(0, y, new Wall());
+		}
+
+		for (int x = 0; x < 16; x++) {
+			map.setTile(x, 35, new Wall());
+		}
+
+		for (int x = 23; x < 45; x++) {
+			map.setTile(x, 2, new Wall());
+		}
+
+
+		return map;
+	}
 }

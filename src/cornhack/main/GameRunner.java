@@ -14,7 +14,7 @@ public class GameRunner {
 	private Queue<Creature> turnQueue;
 
 	public void init(Stage stage) {
-		this.map = MapGenerator.generateSingleRoom(20, 30);
+		this.map = MapGenerator.generateBasicFloor();
 
 		// Creating a Grid Pane
 		Group root = new Group(map.render());

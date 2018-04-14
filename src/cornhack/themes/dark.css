@@ -7,7 +7,7 @@
 /* FLOORS */
 
 .Floor-Basic {
-	-fx-fill: red;
+	-fx-fill: #333333;
 }
 
 .Tile_unseen {

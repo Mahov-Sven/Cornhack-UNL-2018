@@ -44,16 +44,16 @@ public class Wall extends Tile {
 		// Top Right Bottom Left
 		int adjacent = 0b0000;
 
-		if (this.equals(mapTiles.get(currentRow - 1, currentCol))) {
+		if (currentRow != 0 && this.equals(mapTiles.get(currentRow - 1, currentCol))) {
 			adjacent = adjacent | 0b1000;
 		}
-		if (this.equals(mapTiles.get(currentRow, currentCol + 1))) {
+		if (currentCol + 1 != mapTiles.width() && this.equals(mapTiles.get(currentRow, currentCol + 1))) {
 			adjacent = adjacent | 0b0100;
 		}
-		if (this.equals(mapTiles.get(currentRow + 1, currentCol))) {
+		if (currentRow + 1 != mapTiles.height() && this.equals(mapTiles.get(currentRow + 1, currentCol))) {
 			adjacent = adjacent | 0b0010;
 		}
-		if (this.equals(mapTiles.get(currentRow, currentCol - 1))) {
+		if (currentCol != 0 && this.equals(mapTiles.get(currentRow, currentCol - 1))) {
 			adjacent = adjacent | 0b0001;
 		}
 
