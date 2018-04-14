@@ -16,28 +16,31 @@ public class Wall extends Tile {
 	private char[] bottomRightCorner = { '\u2518', '\u251b' };
 
 	@Override
-	public void render(Text screen, Map map) {
+	public Text render(Map map) {
+		Text tile = new Text();
 		switch (this.miningTier) {
 			case 0:
-				screen.getStyleClass().add("miningTierZero");
+				tile.getStyleClass().add("miningTierZero");
 				break;
 			case 1:
-				screen.getStyleClass().add("miningTierOne");
+				tile.getStyleClass().add("miningTierOne");
 				break;
 			case 2:
-				screen.getStyleClass().add("miningTierTwo");
+				tile.getStyleClass().add("miningTierTwo");
 				break;
 			case 3:
-				screen.getStyleClass().add("miningTierThree");
+				tile.getStyleClass().add("miningTierThree");
 				break;
 			case 4:
-				screen.getStyleClass().add("miningTierFour");
+				tile.getStyleClass().add("miningTierFour");
 				break;
 			default:
-				screen.getStyleClass().add("miningTierDefault");
+				tile.getStyleClass().add("miningTierDefault");
 				break;
 		}
 		// TODO Get Map Value and Set text to value.
+
+		return tile;
 	}
 
 	@Override

@@ -8,9 +8,9 @@ import javafx.scene.text.Text;
 public class Floor extends Tile{
 	
 	@Override
-	public void render(Text screen, Map map) {
+	public Text render(Map map) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override

@@ -23,9 +23,9 @@ public class Map {
 			for (int x = 0; x < map.width(); x++) {
 				int index = y * map.width() + x;
 				if (creatures.get(y, x) != null) {
-					tiles[index] = creatures.get(y, x).render();
+					tiles[index] = creatures.get(y, x).render(this);
 				} else if (map.get(y, x) != null) {
-					tiles[index] = map.get(y, x).render();
+					tiles[index] = map.get(y, x).render(this);
 				}
 			}
 		}

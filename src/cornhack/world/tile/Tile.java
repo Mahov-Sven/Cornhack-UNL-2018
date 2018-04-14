@@ -19,7 +19,7 @@ public abstract class Tile {
 	
 	protected boolean beenSeen;
 
-	public abstract void render(Text screen, Map map);
+	public abstract Text render(Map map);
 	
 	public abstract boolean tryMove(Map map, Creature creature, Action action);
 	
