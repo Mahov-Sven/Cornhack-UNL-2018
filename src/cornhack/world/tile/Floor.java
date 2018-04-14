@@ -1,6 +1,6 @@
 package cornhack.world.tile;
 
 
-public class Floor {
+public class Floor extends Tile{
 	
 }
