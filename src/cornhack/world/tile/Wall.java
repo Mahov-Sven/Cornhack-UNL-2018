@@ -2,6 +2,7 @@ package cornhack.world.tile;
 
 import cornhack.creature.Creature;
 import cornhack.mechanics.actions.Action;
+import cornhack.util.Matrix;
 import cornhack.world.Map;
 import javafx.scene.text.Text;
 
@@ -39,6 +40,75 @@ public class Wall extends Tile {
 				break;
 		}
 		// TODO Get Map Value and Set text to value.
+		Matrix<Tile> mapTiles = map.getTiles();
+		// TODO get current row and column.
+		int currentRow = 0;
+		int currentCol = 0;
+		// Top Right Bottom Left
+		int adjacent = 0b0000;
+
+		if (this.equals(mapTiles.get(currentRow + 1, currentCol))) {
+			adjacent = adjacent | 0b1000;
+		}
+		if (this.equals(mapTiles.get(currentRow, currentCol + 1))) {
+			adjacent = adjacent | 0b0100;
+		}
+		if (this.equals(mapTiles.get(currentRow - 1, currentCol))) {
+			adjacent = adjacent | 0b0010;
+		}
+		if (this.equals(mapTiles.get(currentRow, currentCol - 1))) {
+			adjacent = adjacent | 0b0001;
+		}
+
+		switch (adjacent) {
+			case 0b0000:
+				switch(this.miningTier) {
+					case 0:
+						tile.setText(this.side[0]);
+						break;
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					default:
+						break;
+				}
+				break;
+			case 0b1000:
+				break;
+			case 0b0100:
+				break;
+			case 0b0010:
+				break;
+			case 0b0001:
+				break;
+			case 0b1100:
+				break;
+			case 0b1010:
+				break;
+			case 0b1001:
+				break;
+			case 0b0110:
+				break;
+			case 0b0101:
+				break;
+			case 0b0011:
+				break;
+			case 0b1110:
+				break;
+			case 0b1101:
+				break;
+			case 0b0111:
+				break;
+			case 0b1011:
+				break;
+			case 0b1111:
+				break;
+			default:
+				break;
+		}
 
 		return tile;
 	}
@@ -52,7 +122,7 @@ public class Wall extends Tile {
 	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
-		if (this == obj) {
+		if (obj instanceof Wall) {
 			return true;
 		}
 		return false;

@@ -33,7 +33,7 @@ public class Map {
 		return new TextFlow(tiles);
 	}
 
-	public Matrix<Tile> getMap() {
+	public Matrix<Tile> getTiles() {
 		return map;
 	}
 
