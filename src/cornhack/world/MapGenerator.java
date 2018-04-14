@@ -5,6 +5,17 @@ import cornhack.world.tile.Wall;
 
 public class MapGenerator {
 
+	private static void generateRoom(Map map, int xPos, int yPos, int width, int height) {
+		int yMax = yPos + height;
+		int xMax = xPos + width;
+		for (int y = yPos; y < yMax; y++) {
+			for (int x = xPos; x < xMax; x++) {
+				if (y == yPos || x == xPos || y + 1 == yMax || x + 1 == xMax)
+					map.setTile(x, y, new Wall());
+			}
+		}
+	}
+
 	public static Map generateEmpty(int width, int height) {
 		Map map = new Map(width, height);
 		for (int y = 0; y < height; y++) {
@@ -39,32 +50,27 @@ public class MapGenerator {
 		int width = 45;
 		int height = 35;
 		Map map = new Map(width, height);
+
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
 				map.setTile(x, y, new Floor());
 			}
 		}
 
-		for (int x = 0; x < 16; x++) {
-			map.setTile(x, 0, new Wall());
-		}
+		generateRoom(map, 0, 0, 17, 17);
+		generateRoom(map, 0, 16, 27, 5);
 
-		for (int y = 0; y < 35; y++) {
-			map.setTile(0, y, new Wall());
-		}
+		generateRoom(map, 0, 20, 7, 8);
+		generateRoom(map, 0, 27, 7, 8);
 
-		for (int y = 0; y < 35; y++) {
-			map.setTile(0, y, new Wall());
-		}
+		generateRoom(map, 6, 20, 6, 15);
 
-		for (int x = 0; x < 16; x++) {
-			map.setTile(x, 35, new Wall());
-		}
+		generateRoom(map, 11, 20, 7, 8);
+		generateRoom(map, 11, 27, 7, 8);
 
-		for (int x = 23; x < 45; x++) {
-			map.setTile(x, 2, new Wall());
-		}
+		generateRoom(map, 17, 20, 28, 13);
 
+		generateRoom(map, 26, 2, 19, 19);
 
 		return map;
 	}
