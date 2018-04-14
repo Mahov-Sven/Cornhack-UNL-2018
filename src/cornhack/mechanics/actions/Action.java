@@ -1,6 +1,6 @@
 package cornhack.mechanics.actions;
 
 
-public interface ActionI {
+public abstract class Action {
 	
 }

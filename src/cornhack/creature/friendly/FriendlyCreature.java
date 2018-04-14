@@ -1,6 +1,6 @@
 package cornhack.creature.friendly;
 
 
-public interface FriendlyCretureI {
+public abstract class FriendlyCreature {
 	
 }

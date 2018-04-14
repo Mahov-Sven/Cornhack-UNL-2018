@@ -1,6 +1,6 @@
 package cornhack.creature.hostile;
 
 
-public interface HostileCreature {
+public abstract class HostileCreature {
 	
 }

@@ -1,4 +1,4 @@
-package cornhack.world.tile.terrain;
+package cornhack.world.tile.hazard;
 
 
 public class FallenPowerline {

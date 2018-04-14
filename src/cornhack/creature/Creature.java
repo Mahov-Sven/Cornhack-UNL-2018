@@ -1,6 +1,6 @@
 package cornhack.creature;
 
 
-public interface CreatureI {
+public abstract class Creature {
 	
 }
