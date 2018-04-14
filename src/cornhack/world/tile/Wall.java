@@ -3,18 +3,24 @@ package cornhack.world.tile;
 import cornhack.creature.Creature;
 import cornhack.mechanics.actions.Action;
 import cornhack.util.Matrix;
+import cornhack.util.Util;
 import cornhack.world.Map;
 import javafx.scene.text.Text;
 
 public class Wall extends Tile {
 	// Each wall is a list with thickness from smallest -> thickest
 
-	private char[] top = { '\u2581', '\u2582', '\u2583', '\u2584' };
-	private char[] side = { '\u258F', '\u258E', '\u258D', '\u258C' };
+	private char[] top = { '\u2500', '\u2501' };
+	private char[] side = { '\u2502', '\u2503' };
 	private char[] topLeftCorner = { '\u250c', '\u250f' };
 	private char[] topRightCorner = { '\u2510', '\u2513' };
 	private char[] bottomLeftCorner = { '\u2514', '\u2517' };
 	private char[] bottomRightCorner = { '\u2518', '\u251b' };
+	private char[] tee = { '\u252c', '\u2533' };
+	private char[] teeRight = { '\u251c', '\u2523' };
+	private char[] teeLeft = { '\u2524', '\u252b' };
+	private char[] teeUp = { '\u2534', '\u253b' };
+	private char[] plus = { '\u253c', '\u254b' };
 
 	@Override
 	public Text render(Map map) {
@@ -25,15 +31,6 @@ public class Wall extends Tile {
 				break;
 			case 1:
 				tile.getStyleClass().add("miningTierOne");
-				break;
-			case 2:
-				tile.getStyleClass().add("miningTierTwo");
-				break;
-			case 3:
-				tile.getStyleClass().add("miningTierThree");
-				break;
-			case 4:
-				tile.getStyleClass().add("miningTierFour");
 				break;
 			default:
 				tile.getStyleClass().add("miningTierDefault");
@@ -62,51 +59,260 @@ public class Wall extends Tile {
 
 		switch (adjacent) {
 			case 0b0000:
-				switch(this.miningTier) {
+				// Side
+				switch (this.miningTier) {
 					case 0:
-						tile.setText(this.side[0]);
+						tile.setText(Util.charToString(this.side[0]));
 						break;
 					case 1:
-						break;
-					case 2:
-						break;
-					case 3:
+						tile.setText(Util.charToString(this.side[1]));
 						break;
 					default:
+						tile.setText(Util.charToString(this.side[0]));
 						break;
 				}
 				break;
 			case 0b1000:
+				// Side
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.side[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+				}
 				break;
 			case 0b0100:
+				// Top
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.top[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.top[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.top[0]));
+						break;
+				}
 				break;
 			case 0b0010:
+				// Side
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.side[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+				}
 				break;
 			case 0b0001:
+				// Top
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.top[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.top[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.top[0]));
+						break;
+				}
 				break;
 			case 0b1100:
+				// Bottom Left Corner
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.bottomLeftCorner[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.bottomLeftCorner[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.bottomLeftCorner[0]));
+						break;
+				}
 				break;
 			case 0b1010:
+				// Vertical
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.side[1]));
+						break;
+					case 2:
+						tile.setText(Util.charToString(this.side[2]));
+						break;
+					case 3:
+						tile.setText(Util.charToString(this.side[3]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+				}
 				break;
 			case 0b1001:
+				// Bottom Right Corner
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.bottomRightCorner[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.bottomRightCorner[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.bottomRightCorner[0]));
+						break;
+				}
 				break;
 			case 0b0110:
+				// Top left corner
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.topLeftCorner[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.topLeftCorner[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.topLeftCorner[0]));
+						break;
+				}
 				break;
 			case 0b0101:
+				// horizontal
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.top[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.top[1]));
+						break;
+					case 2:
+						tile.setText(Util.charToString(this.top[2]));
+						break;
+					case 3:
+						tile.setText(Util.charToString(this.top[3]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.top[0]));
+						break;
+				}
 				break;
 			case 0b0011:
+				// Top right corner
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.topRightCorner[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.topRightCorner[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.topRightCorner[0]));
+						break;
+				}
 				break;
 			case 0b1110:
+				// TODO Right T
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.side[1]));
+						break;
+					case 2:
+						tile.setText(Util.charToString(this.side[2]));
+						break;
+					case 3:
+						tile.setText(Util.charToString(this.side[3]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+				}
 				break;
 			case 0b1101:
+				// Up T
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.teeUp[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.teeUp[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.teeUp[0]));
+						break;
+				}
 				break;
 			case 0b0111:
+				// T
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.tee[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.tee[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.tee[0]));
+						break;
+				}
 				break;
 			case 0b1011:
+				// TODO Left T
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.teeLeft[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.teeLeft[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.teeLeft[0]));
+						break;
+				}
 				break;
 			case 0b1111:
+				// +
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.plus[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.plus[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.plus[0]));
+						break;
+				}
 				break;
 			default:
+				// Side
+				switch (this.miningTier) {
+					case 0:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+					case 1:
+						tile.setText(Util.charToString(this.side[1]));
+						break;
+					default:
+						tile.setText(Util.charToString(this.side[0]));
+						break;
+				}
 				break;
 		}
 
