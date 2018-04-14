@@ -1,8 +1,9 @@
 package cornhack.mechanics.actions;
 
+import cornhack.creature.Creature;
 import cornhack.world.Map;
 
-public class Defend extends Affect {
+public class Defend extends Action {
 	
 	private boolean defend = false;
 	public boolean getDefend() {
@@ -10,10 +11,5 @@ public class Defend extends Affect {
 	}
 	public void setDefend(boolean value) {
 		this.defend = value;
-	}
-	@Override
-	public void act(Map map) {
-		// TODO Auto-generated method stub
-		
 	}
 }
