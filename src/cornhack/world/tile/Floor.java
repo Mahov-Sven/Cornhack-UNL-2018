@@ -8,10 +8,10 @@ import javafx.scene.text.Text;
 
 public class Floor extends Tile {
 	
-	private char[] floors = { '\u2591' };
+	private char[] floors = { '\u2588' };
 
 	@Override
-	public Text render(Map map) {
+	public Text render(Map map, int x, int y) {
 		Text tile = new Text();
 		tile.getStyleClass().add("Floor-Basic");
 		tile.setText(Util.charToString(floors[0]));

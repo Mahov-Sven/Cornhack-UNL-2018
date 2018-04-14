@@ -10,24 +10,28 @@ public class Matrix<T> {
 		this.matrix = new ArrayList<ArrayList<T>>();
 	}
 	
-	public Matrix(int rows, int cols) {
+	public Matrix(int cols, int rows) {
 		this.matrix = new ArrayList<ArrayList<T>>();
 		this.size(rows, cols);
 	}
 
-	public void size(int rows, int cols) {
+	public void size(int cols, int rows) {
 		ArrayList<ArrayList<T>> result = new ArrayList<ArrayList<T>>();
+
 		for (int row = 0; row < rows; row++) {
-			if (row >= matrix.size())
-				break;
-
+			result.add(new ArrayList<T>());
 			for (int col = 0; col < cols; col++) {
-				if (col >= matrix.get(col).size())
-					break;
-
-				result.get(row).set(col, matrix.get(row).get(col));
+				if (row < matrix.size() && col < matrix.get(col).size()) {
+					result.get(row).add(matrix.get(row).get(col));
+				} else {
+					result.get(row).add(null);
+				}
 			}
 		}
+
+		this.matrix = result;
+		System.out.println(this.width());
+		System.out.println(this.height());
 	}
 
 	public T get(int row, int col) {

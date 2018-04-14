@@ -23,7 +23,7 @@ public class Wall extends Tile {
 	private char[] plus = { '\u253c', '\u254b' };
 
 	@Override
-	public Text render(Map map) {
+	public Text render(Map map, int x, int y) {
 		Text tile = new Text();
 		switch (this.miningTier) {
 			case 0:
@@ -39,18 +39,18 @@ public class Wall extends Tile {
 		// TODO Get Map Value and Set text to value.
 		Matrix<Tile> mapTiles = map.getTiles();
 		// TODO get current row and column.
-		int currentRow = 0;
-		int currentCol = 0;
+		int currentRow = y;
+		int currentCol = x;
 		// Top Right Bottom Left
 		int adjacent = 0b0000;
 
-		if (this.equals(mapTiles.get(currentRow + 1, currentCol))) {
+		if (this.equals(mapTiles.get(currentRow - 1, currentCol))) {
 			adjacent = adjacent | 0b1000;
 		}
 		if (this.equals(mapTiles.get(currentRow, currentCol + 1))) {
 			adjacent = adjacent | 0b0100;
 		}
-		if (this.equals(mapTiles.get(currentRow - 1, currentCol))) {
+		if (this.equals(mapTiles.get(currentRow + 1, currentCol))) {
 			adjacent = adjacent | 0b0010;
 		}
 		if (this.equals(mapTiles.get(currentRow, currentCol - 1))) {
@@ -225,22 +225,16 @@ public class Wall extends Tile {
 				}
 				break;
 			case 0b1110:
-				// TODO Right T
+				// Right T
 				switch (this.miningTier) {
 					case 0:
-						tile.setText(Util.charToString(this.side[0]));
+						tile.setText(Util.charToString(this.teeRight[0]));
 						break;
 					case 1:
-						tile.setText(Util.charToString(this.side[1]));
-						break;
-					case 2:
-						tile.setText(Util.charToString(this.side[2]));
-						break;
-					case 3:
-						tile.setText(Util.charToString(this.side[3]));
+						tile.setText(Util.charToString(this.teeRight[1]));
 						break;
 					default:
-						tile.setText(Util.charToString(this.side[0]));
+						tile.setText(Util.charToString(this.teeRight[0]));
 						break;
 				}
 				break;
@@ -273,7 +267,7 @@ public class Wall extends Tile {
 				}
 				break;
 			case 0b1011:
-				// TODO Left T
+				// Left T
 				switch (this.miningTier) {
 					case 0:
 						tile.setText(Util.charToString(this.teeLeft[0]));

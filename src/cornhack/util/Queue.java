@@ -10,13 +10,14 @@ public class Queue<T> {
 	}
 
 	public T peek() {
-		return head.getData();
+		return head.data();
 	}
 
 	public T next() {
 		Node<T> result = head;
-		head.detatch();
-		return result.getData();
+		head = result.next();
+		result.detatch();
+		return result.data();
 	}
 }
 
@@ -29,8 +30,16 @@ class Node<T> {
 		this.data = data;
 	}
 
-	public T getData() {
+	public T data() {
 		return data;
+	}
+
+	public Node<T> prev() {
+		return prev;
+	}
+
+	public Node<T> next() {
+		return next;
 	}
 
 	public void detatch() {

@@ -11,29 +11,31 @@ public class Map {
 	private Matrix<Tile> map;
 	private Matrix<Creature> creatures;
 	
-	public Map(int height, int width) {
-		this.map = new Matrix<Tile>(height, width);
-		this.creatures = new Matrix<Creature>(height, width);
+	public Map(int width, int height) {
+		this.map = new Matrix<Tile>(width, height);
+		this.creatures = new Matrix<Creature>(width, height);
 	}
 
 	public TextFlow render() {
-		Text[] tiles = new Text[map.length()];
+		TextFlow tiles = new TextFlow();
 		
 		for (int y = 0; y < map.height(); y++) {
 			for (int x = 0; x < map.width(); x++) {
-				int index = y * map.width() + x;
+				map.width();
 				if (creatures.get(y, x) != null) {
-					tiles[index] = creatures.get(y, x).render(this);
+					tiles.getChildren().add(creatures.get(y, x).render(this, x, y));
 				} else if (map.get(y, x) != null) {
-					tiles[index] = map.get(y, x).render(this);
+					tiles.getChildren().add(map.get(y, x).render(this, x, y));
 				}
 			}
+			if (y != map.height() - 1)
+				tiles.getChildren().add(new Text("\n"));
 		}
-		
-		return new TextFlow(tiles);
+
+		return tiles;
 	}
 
-	public void setTile(int y, int x, Tile tile) {
+	public void setTile(int x, int y, Tile tile) {
 		map.set(x, y, tile);
 	}
 	public Matrix<Tile> getTiles() {

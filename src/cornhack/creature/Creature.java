@@ -1,8 +1,8 @@
 package cornhack.creature;
 
 import java.util.List;
-import cornhack.mechanics.actions.*;
 
+import cornhack.mechanics.actions.Action;
 import cornhack.world.Map;
 import javafx.scene.text.Text;
 
@@ -163,5 +163,5 @@ public abstract class Creature {
 
 	
 	
-	public abstract Text render(Map map);
+	public abstract Text render(Map map, int x, int y);
 }
