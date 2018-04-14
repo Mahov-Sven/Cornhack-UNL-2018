@@ -1,6 +1,7 @@
 package cornhack.world.tile.building;
 
+import cornhack.world.tile.Wall;
 
-public class Window {
+public class Window extends Wall{
 	
 }

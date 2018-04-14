@@ -9,15 +9,15 @@ import javafx.scene.text.Text;
 
 public abstract class Tile {
 	
-	private int miningTier;
+	protected int miningTier;
 	
-	private int terrainDifficultyTier;
+	protected int terrainDifficultyTier;
 	
-	private int terrainVisibilityTier;
+	protected int terrainVisibilityTier;
 	
-	private ArrayList<Tile> notifyTiles;
+	protected ArrayList<Tile> notifyTiles;
 	
-	private boolean beenSeen;
+	protected boolean beenSeen;
 
 	public abstract void render(Text screen, Map map);
 	
