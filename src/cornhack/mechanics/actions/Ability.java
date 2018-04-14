@@ -1,6 +1,6 @@
 package cornhack.mechanics.actions;
 
 
-public class Spell {
+public class Ability extends Affect {
 	
 }

@@ -1,6 +1,6 @@
 package cornhack.mechanics.actions;
 
 
-public class Movement {
+public class Movement extends Action {
 	
 }
