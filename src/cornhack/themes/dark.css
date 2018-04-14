@@ -1,4 +1,12 @@
+/* GLOBALS */
+
 .button { 
    -fx-background-color: red; 
    -fx-text-fill: white; 
+}
+
+/* TILES */
+
+.Tile_unseen {
+	
 }
