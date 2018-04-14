@@ -2,6 +2,8 @@ package cornhack.mechanics.actions;
 
 import java.util.Random;
 
+import cornhack.world.Map;
+
 public class Attack extends Affect {
 	
 	private String name;
@@ -51,6 +53,12 @@ public class Attack extends Affect {
 
 	public void setDmg(int dmg) {
 		this.dmg = dmg;
+	}
+
+	@Override
+	public void act(Map map) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

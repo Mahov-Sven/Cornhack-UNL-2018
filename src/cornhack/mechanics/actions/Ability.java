@@ -1,6 +1,7 @@
 package cornhack.mechanics.actions;
 
+import cornhack.world.Map;
 
-public class Ability extends Affect {
+public abstract class Ability extends Affect {
 	
 }
