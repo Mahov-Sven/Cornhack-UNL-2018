@@ -2,14 +2,31 @@
 
 
 
+
 /* TILES */
+
+.Tile {
+	/*-fx-background-color: #888888;*/
+	-fx-fill: #bbbbbb;
+	
+	-fx-scale-x: 1.1;
+	-fx-scale-y: 1.1;
+	
+}
 
 /* FLOORS */
 
-.Floor-Basic {
-	-fx-fill: #ffffff;
+.Floor {
+	/*-fx-fill: #ffffff;*/
+	/*-fx-stroke: #000000;*/
 }
 
-.Tile_unseen {
-	
+/* WALLS */
+
+.Wall {
+	-fx-stroke: #747474;
+}
+
+.Door {
+	-fx-stroke: #714b26;
 }

@@ -13,6 +13,7 @@ public class Floor extends Tile {
 	@Override
 	public Text render(Map map, int x, int y) {
 		Text tile = new Text();
+		tile.getStyleClass().add("Tile");
 		tile.getStyleClass().add("Floor-Basic");
 		tile.setText(Util.charToString(floors[0]));
 		return tile;

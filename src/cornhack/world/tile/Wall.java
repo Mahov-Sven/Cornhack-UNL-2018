@@ -25,6 +25,8 @@ public class Wall extends Tile {
 	@Override
 	public Text render(Map map, int x, int y) {
 		Text tile = new Text();
+		tile.getStyleClass().add("Tile");
+		tile.getStyleClass().add("Wall");
 		switch (this.miningTier) {
 			case 0:
 				tile.getStyleClass().add("miningTierZero");
@@ -37,7 +39,7 @@ public class Wall extends Tile {
 				break;
 		}
 		// TODO Get Map Value and Set text to value.
-		Matrix<Tile> mapTiles = map.getTiles();
+		Matrix<Tile> mapTiles = map.getFieldTiles();
 		// TODO get current row and column.
 		int currentRow = y;
 		int currentCol = x;

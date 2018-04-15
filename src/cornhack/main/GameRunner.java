@@ -4,8 +4,9 @@ import cornhack.creature.Creature;
 import cornhack.util.Queue;
 import cornhack.world.Map;
 import cornhack.world.MapGenerator;
-import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class GameRunner {
@@ -16,11 +17,14 @@ public class GameRunner {
 	public void init(Stage stage) {
 		this.map = MapGenerator.generateBasicFloor();
 
-		// Creating a Grid Pane
-		Group root = new Group(map.render());
+		GridPane fieldPane = new GridPane();
+		GridPane backgroundPane = new GridPane();
+		StackPane stack = new StackPane();
+		stack.getChildren().addAll(fieldPane, backgroundPane);
+		map.render(backgroundPane, fieldPane);
 
 		// Creating a scene object
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(stack);
 
 		// Set theme
 		scene.getStylesheets().add(getClass().getResource("../themes/dark.css").toExternalForm());
